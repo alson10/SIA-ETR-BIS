@@ -1,0 +1,35 @@
+
+.notif-content {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+}
+
+.notif-content p {
+    font-size: 15px;
+}
+.notif-card a{
+    color: black;
+}
+.notif-card {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.read {
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.unread {
+    background-color: rgba(0, 0, 0, .05);
+
+}
+
+.notif-card span {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 13px;
+}

@@ -1,0 +1,26 @@
+.btn-add-assets{
+    width: 100%;
+    border: 0;
+    padding: 6px 0;
+    background-color:var(--btnBg);
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.preview-asset{
+    color: white;
+    padding: 8px 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: green;
+    margin-right: 10px;
+}
+
+.delete-asset{
+    color: white;
+    padding: 8px 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: red;
+}

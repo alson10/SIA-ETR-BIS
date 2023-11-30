@@ -1,0 +1,169 @@
+/* :root {
+    --mainBG: #0E0E23;
+    --txtColor: #fff;
+  } */
+:root {
+    --mainBG: #0E0E23;
+    --txtColor: #fff;
+    --btnBg: #6259CA;
+}
+
+body,
+html * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+.side-nav-bar {
+    position: fixed;
+
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--mainBG);
+}
+
+.side-nav-bar ul li {
+    list-style: none;
+}
+
+.side-nav-bar ul li div a {
+    color: var(--txtColor);
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+
+    align-items: center;
+}
+
+.side-nav-bar ul li .item {
+    padding: 8px;
+
+}
+
+.side-nav-bar ul li .active {
+    margin: -12px 0;
+}
+
+.side-nav-bar ul li .active a {
+    color: var(--mainBG);
+    font-weight: 600;
+}
+
+.side-nav-bar ul li .active a div {
+    background-color: #6259CA;
+}
+
+.side-nav-bar ul li a div {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--txtColor);
+}
+
+.side-nav-bar ul li .active .item {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: var(--txtColor);
+}
+
+.side-nav-bar ul li .active .top-curve,
+.side-nav-bar ul li .active .bottom-curve {
+    background-color: var(--txtColor);
+    width: 100%;
+    height: 20px;
+}
+
+.side-nav-bar ul li .active .top-curve::before,
+.side-nav-bar ul li .active .bottom-curve::before {
+    content: "";
+    display: block;
+    background-color: var(--mainBG);
+    width: 100%;
+    height: 20px;
+}
+
+.side-nav-bar ul li .active .top-curve::before {
+    border-bottom-right-radius: 20px;
+}
+
+.side-nav-bar ul li .active .bottom-curve::before {
+    border-top-right-radius: 20px;
+}
+
+.side-nav-bar p {
+    color: #B7B7BD;
+    margin: 15px 0;
+    font-size: 15px;
+}
+
+.side-nav-bar h3 {
+    margin-top: 10px;
+    color: var(--txtColor);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.side-nav-bar h3 i {
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.right-content {
+    padding: 15px;
+    width: calc(100% - 250px);
+    margin-left: 250px;
+}
+
+label {
+    font-weight: 500;
+}
+
+#loader {
+    z-index: 1;
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .9);
+    align-items: center;
+    justify-content: center;
+}
+
+#loader img {
+    height: 50px;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--btnBg);
+}
+
+.btn-outline-secondary {
+    border: 0;
+    margin-right: 10px;
+    color: black;
+    border-color: var(--btnBg);
+}
+
+.rotate {
+    animation: spin 2s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

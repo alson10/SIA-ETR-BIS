@@ -1,0 +1,94 @@
+.news-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.news-card .images {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.news-card a {
+    color: #0E0E23;
+}
+.news-card .images img {
+  
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card h5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 17px;
+
+}
+
+.news-card h6 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 15px;
+    margin-top: 10px;
+
+}
+.navbar a {
+    color: white;
+    font-size: 15px;
+}
+.navbar li {
+    margin: 0 10px;
+}
+.navbar {
+    padding: 15px;
+    background-color: var(--mainBG) !important;
+}
+.btn-outline-secondary:hover {
+    background-color: var(--btnBg);
+}
+.btn-outline-secondary {
+    color: white;
+    border-color: var(--btnBg);
+}
+.active {
+    border-bottom: 2px solid var(--btnBg) !important;
+}
+.request-card {
+    padding: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.make-request-btn{
+    margin-left: 20px;
+    padding: 8px 20px;
+    background-color:  var(--btnBg);
+}
+
+/* comments card */
+
+.comment-card
+{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+.comment-card .header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+
+.comment-card .header img{
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}

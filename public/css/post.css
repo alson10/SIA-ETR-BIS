@@ -1,0 +1,33 @@
+.btn-save-post{
+    background-color: white;
+    color: black;
+    border: 1px solid var(--btnBg);
+    font-weight: 500;
+}
+
+.note-group-select-from-files{
+    display: none;
+}
+.note-modal-footer{
+    margin-bottom: 20px;
+}
+.note-modal-footer input{
+    border: 0;
+    background-color: var(--btnBg) !important;
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer !important;
+}
+/* .note-editing-area{
+    height: calc(100vh - 210px);
+
+} */
+
+.preview-post{
+    color: white;
+    padding: 5px 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: green;
+    margin-right: 10px;
+}
