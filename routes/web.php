@@ -13,6 +13,7 @@ use App\Http\Controllers\BlotterController;
 use App\Http\Controllers\NewscommentController;
 use App\Http\Controllers\NewsfeedscommentController;
 use App\Http\Controllers\OfficialsController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\Users\MyRequestController;
 use App\Models\Blotter;
@@ -198,6 +199,12 @@ Route::middleware('auth')->group(function () {
             Route::get('/admin/post/create', 'create')->name('create_post');
             Route::get('/admin/post/{id}delete', 'delete')->name('post.delete');
             Route::post('/admin/post/store', 'store')->name('store.post');
+        });
+
+
+        Route::controller(UsersController::class)->group(function () {
+            Route::get('/admin/users/', 'index')->name('users.index');
+            Route::get('/admin/users/{id}/{id_status}/toggle', 'toggle')->name('users.toggle');
         });
 
         Route::controller(RequestController::class)->group(function () {

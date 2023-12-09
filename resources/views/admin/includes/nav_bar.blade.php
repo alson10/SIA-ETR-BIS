@@ -63,6 +63,17 @@
                 </div>
             </li>
             <li>
+                <div class="{{ $active == 'users' ? 'active' : '' }}">
+                    <div class="top-curve"></div>
+                    <div class="item">
+                        <a href="{{ route('users.index') }}">
+                            <div><i class="fa-solid fa-user"></i></div>Users
+                        </a>
+                    </div>
+                    <div class="bottom-curve"></div>
+                </div>
+            </li>
+            <li>
                 <div class="{{ $active == 'position' ? 'active' : '' }}">
                     <div class="top-curve"></div>
                     <div class="item">
