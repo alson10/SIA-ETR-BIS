@@ -115,22 +115,22 @@ Route::middleware('auth')->group(function () {
     Route::middleware('admin')->group(function () {
 
         Route::get('/admin', function () {
-    
-        $services = Services::select('service_name', DB::raw('COUNT(request_list.service_id) as count'))
-            ->join('request_list', 'services.id', '=', 'request_list.service_id')
-            ->groupBy('request_list.service_id', 'service_name')
-            ->orderByDesc('count')
-            ->limit(5)
-            ->get();
 
-        // Prepare the data for the chart
-        $labels = $services->pluck('service_name')->toArray();
-        $values = $services->pluck('count')->toArray();
+            $services = Services::select('service_name', DB::raw('COUNT(request_list.service_id) as count'))
+                ->join('request_list', 'services.id', '=', 'request_list.service_id')
+                ->groupBy('request_list.service_id', 'service_name')
+                ->orderByDesc('count')
+                ->limit(5)
+                ->get();
+
+            // Prepare the data for the chart
+            $labels = $services->pluck('service_name')->toArray();
+            $values = $services->pluck('count')->toArray();
             return view(
                 'admin.index',
                 [
-                    'labels'=>$services->pluck('service_name')->toArray(),
-                    '$values'=> $services->pluck('count')->toArray(),
+                    'labels' => $services->pluck('service_name')->toArray(),
+                    '$values' => $services->pluck('count')->toArray(),
                     'users' => User::get()->count() - 1,
                     'officials' => Official::get()->count(),
                     'news' => Post::get()->count(),
@@ -170,15 +170,18 @@ Route::middleware('auth')->group(function () {
             Route::POST('/admin/blotter/update/{blotter}', 'update')->name('blotter.update');
         });
 
-        Route::controller(CerificateController::class)->group(function () {
-            Route::get('/admin/certificate/', 'index')->name('certificate.index');
-            // Route::get('/admin/certificate/create', 'create')->name('certificate.create');
-            Route::POST('/admin/certificate/indigency', 'indigency')->name('certificate.indigency');
-            // Route::GET('/admin/certificate/print', 'print')->name('certificate.print');
-            // Route::GET('/admin/certificate/printna/{id}', 'printna')->name('certificate.printna');
-            // Route::get('/admin/certificate/{id}/edit', 'edit')->name('certificate.edit');
-            // Route::POST('/admin/certificate/update', 'update')->name('certificate.update');
+        // Route::controller(CerificateController::class)->group(function () {
+        //     Route::get('/admin/certificate/', 'index')->name('certificate.index');
+        //     Route::POST('/admin/certificate/indigency', 'indigency')->name('certificate.indigency');
+        //     Route::get('/admin/certificate/indigency/pdf', 'indigencyPdf')->name('certificate.indigency.pdf');
+        // });
+        Route::prefix('/admin/certificate')->group(function () {
+            Route::get('/', [CerificateController::class, 'index'])->name('certificate.index');
+            Route::post('/indigency', [CerificateController::class, 'indigency'])->name('certificate.indigency');
+            Route::get('/certificate/indigency', 'CerificateController@indigencyWithQr')->name('certificate.indigency');
+            Route::post('/indigency-with-qr', [CerificateController::class, 'indigencyWithQr'])->name('certificate.indigency.with.qr');
         });
+
         Route::controller(NewsfeedController::class)->group(function () {
             Route::get('/admin/newsfeed/', 'index')->name('newsfeed');
             Route::get('/admin/newsfeed/create', 'create')->name('newsfeed.create');
@@ -210,13 +213,11 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(RequestController::class)->group(function () {
             Route::get('/admin/request/{request_id?}/{notification_id?}', 'index')->name('request');
-           
         });
 
         Route::controller(GenerateCertificateController::class)->group(function () {
             Route::get('/admin/generate_certificate/', 'view')->name('generate_certificate.view');
             Route::get('/admin/generate_certificate/{user_id}/{request_id}/{service_name}/', 'show')->name('generate_certificate.show');
-           
         });
         // Route::get('/admin/request/', 'cert_indigency')->name('request.cert_indigency');
         // Route::get('/admin/request/cert_indigency', 'RequestController@cert_indigency')->name('request.cert_indigency');

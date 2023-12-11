@@ -45,6 +45,9 @@
 @foreach ($services as $service)
     @if ($service->service_name == 'Certificate of Indigency')
     <div class="container">
+        <img src="{{ asset('qrcodes/') }}" alt="QR Code">
+        {{-- <a href="{{ asset('pdf/') }}" target="_blank">Download PDF</a> --}}
+        {{-- <img src="{{ asset('assets/qrcode.png') }}" alt="QR Code" id="qrcode"> --}}
         <div class="row">
             <form action="{{route('certificate.indigency')}}" method="post">
                 @csrf
@@ -89,6 +92,7 @@
     @endif
     @if ($service->service_name == 'Barangay Clearance')
     <div class="container">
+        <img src="{{ asset('qrcodes/') }}" alt="QR Code">
         <div class="row">
             <form action="{{route('certificate.indigency')}}" method="post">
                 @csrf
@@ -156,5 +160,6 @@
     @endforeach
 <script>
     window.print();
+    
 </script>
 
