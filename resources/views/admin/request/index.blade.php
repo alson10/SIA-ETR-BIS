@@ -70,6 +70,8 @@
                                         <li><a class="dropdown-item"
                                                 href="{{ route('admin.createNotifaction', ['user_id' => $request->owner_id, 'request_id' => $request->id, 'status' => 1]) }}">Notify
                                                 Processing</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('generate_certificate.show', ['user_id' => $request->owner_id, 'request_id' => $request->id, 'service_name' => $request->service_name]) }}">Generate 
+                                                Certificate</a></li>
                                         <li><a class="dropdown-item"
                                                 href="{{ route('admin.createNotifaction', ['user_id' => $request->owner_id, 'request_id' => $request->id, 'status' => 2]) }}">Notify
                                                 Ready to pickup</a></li>

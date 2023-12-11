@@ -19,5 +19,15 @@ class Request_list extends Model
         'status',
     ];
 
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function services()
+    {
+        return $this->hasMany(Services::class);
+    }
+
 }
 

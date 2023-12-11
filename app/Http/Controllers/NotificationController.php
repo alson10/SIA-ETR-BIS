@@ -11,7 +11,15 @@ use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
+    public  function generateCertificate($user_id, $request_id, $status)
+    {
 
+            $requests = Request_list::all();
+            return view('admin.request.cert_indigency', [
+                'requests' => $requests,
+        ]);
+        
+    }
     public  function createNotification($user_id, $request_id, $status)
     {
         $data = [
@@ -22,6 +30,12 @@ class NotificationController extends Controller
         ];
         if (strval($status) == "1") {
             $data['content'] = "Your request is already processing";
+
+        //     $requests = Request_list::all();
+        //     return view('admin.request.cert_indigency', [
+        //         'requests' => $requests,
+        // ]);
+        
         }
         if (strval($status) == "2") {
             $data['content'] = "Your request is ready to pickup";
@@ -37,6 +51,7 @@ class NotificationController extends Controller
         $request = Request_list::find($request_id);
         $request->status = $status;
         $request->save();
+       
         return redirect()->route('request');
     }
     public function getUserNotifations(Request $request)

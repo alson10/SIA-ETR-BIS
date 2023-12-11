@@ -16,6 +16,7 @@ use App\Http\Controllers\OfficialsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\Users\MyRequestController;
+use App\Http\Controllers\GenerateCertificateController;
 use App\Models\Blotter;
 use App\Models\Newscomment;
 use App\Models\Newsfeedscomment;
@@ -209,7 +210,18 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(RequestController::class)->group(function () {
             Route::get('/admin/request/{request_id?}/{notification_id?}', 'index')->name('request');
+           
         });
+
+        Route::controller(GenerateCertificateController::class)->group(function () {
+            Route::get('/admin/generate_certificate/', 'view')->name('generate_certificate.view');
+            Route::get('/admin/generate_certificate/{user_id}/{request_id}/{service_name}/', 'show')->name('generate_certificate.show');
+           
+        });
+        // Route::get('/admin/request/', 'cert_indigency')->name('request.cert_indigency');
+        // Route::get('/admin/request/cert_indigency', 'RequestController@cert_indigency')->name('request.cert_indigency');
+
+        Route::resource('request', RequestController::class)->only(['cert_indigency']);
 
         Route::get('admin/barangay_positions', [BarangayPositionController::class, 'index'])
             ->name('barangay_positions.index');
