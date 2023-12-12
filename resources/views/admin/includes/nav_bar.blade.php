@@ -223,7 +223,7 @@
                                 <i class="fa-regular fa-message"></i>
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {{ Chatify::countAllUnseenMessages() }}+
+                                    {{-- {{ Chatify::countAllUnseenMessages() }}+ --}}
                                 </span>
                             </a>
 

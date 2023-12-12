@@ -16,6 +16,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>User Code</th>
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Status</th>
@@ -25,7 +26,8 @@
         <tbody>
             @foreach ($users as $user)
                 <tr>
-                    <td>{{ $user->firstname }} {{ $user->middlehame }} {{ $user->lastname }}</td>     
+                    <td>{{ $user->firstname }} {{ $user->middlehame }} {{ $user->lastname }}</td>   
+                    <td>{!! DNS2D::getBarcodeHTML($user->user_code, 'QRCODE') !!}</td> 
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->gender }} </td>
                     <td>

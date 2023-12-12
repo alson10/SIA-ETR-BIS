@@ -30,6 +30,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $number = $this->generateUniqueUserCode();
         $request->validate([
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
@@ -39,7 +40,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        
+
         $user_image = '';
 
         if ($request->hasFile('avatar')) {
@@ -59,10 +60,14 @@ class RegisteredUserController extends Controller
             $back = $request->getSchemeAndHttpHost() . '/storage/valid_id/' . time() . '.' . $request->back_id->extension();
             $request->back_id->move(public_path('storage/valid_id/'), $back);
         }
+        if ($this->userCodeExists($number)) {
+            $number = mt_rand(1000000000, 999999999);
+        }
 
         // $path = substr($request->file('file')->storePublicly('public/users_avatar'), 20);
         $user = User::create([
             'name' => $request->firstname . " " . $request->lastname,
+            'user_code' => $number,
             'firstname' => $request->firstname,
             'middlename' => $request->middlename == null ? "" : $request->middlename,
             'lastname' => $request->lastname,
@@ -84,5 +89,19 @@ class RegisteredUserController extends Controller
         } else {
             return redirect()->route('/admin');
         }
+    }
+
+    public function userCodeExists($number)
+    {
+        return User::whereUserCode($number)->exists();
+    }
+
+    public function generateUniqueUserCode(): int
+    {
+        do {
+            $number = mt_rand(1000000000, 999999999);
+        } while ($this->userCodeExists($number));
+
+        return $number;
     }
 }
