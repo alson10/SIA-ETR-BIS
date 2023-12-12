@@ -3,6 +3,22 @@
     <div class="row">
         <h5 style="margin:50px 0 50px 0">Update Information</h5>
         <div style="padding: 20px;border: 1px solid rgba(0, 0, 0, .05)">
+           
+            {{-- <div class="col-lg-12" style="margin-bottom: 10px">
+                <img id="{{ Auth::user()->id }}" style="border-radius: 10px" class="popup-image img-fluid"
+                    src="{{ Auth::user()->path }}"
+                    data-mdb-img="{{ Auth::user()->path }}"; srcset="">
+            </div> --}}
+            <div class="col-md-4">
+                <h5 style="margin: 20px 0 20px 0">ID: </h5> 
+                    <div class="col-lg-12" style="margin-bottom: 10px">
+                        <img id="{{ Auth::user()->id }}" style="border-radius: 10px; width: 200px;" 
+                            src="/storage/users_avatar/{{ Auth::user()->avatar }}"
+                            data-mdb-img="/storage/users_avatar/{{ Auth::user()->avatar }}";  srcset="">
+                    </div>
+            </div>
+           
+            {{-- <img src="/storage/assets/users-avatar/{{ asset(Auth::user()->avatar) }}" class="img-fluid" style="max-height: 350px; max-width: 100%;"> --}}
             <h6>Firstname: </h6>
             <h6 style="margin:5px 0 10px 0">{{ Auth::user()->firstname }}</h6>
             <h6>Middlename:</h6>

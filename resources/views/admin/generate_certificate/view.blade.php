@@ -120,27 +120,30 @@
                     </div>
                     @endforeach
                 @endforeach
+                @foreach ($users as $user)
                 <div class="info">
-                    Full Name: <br>
-                    Address: <br>
-                    Place of Birth: <br>
-                    Date of Birth: <br>
-                    Gender: <br>
-                    Civil Status: <br>
-                    Purpose: 
-                </div> 
-                
+                    Full Name: {{ $user->firstname }} {{ $user->middlename }} {{ $user->lastname }}<br>
+                    Address: San Carlos City, Pangasinan<br>
+                    Place of Birth: San Carlos City, Pangasinan<br>
+                    Date of Birth: {{ \Carbon\Carbon::parse($user->birthdate)->format('F j, Y') }} <br>
+                    Gender: {{ $user->gender }}<br>
+                    Civil Status: Signal Dad<br>
+                    @foreach ($requests as $request)
+                        Purpose: {{ $request->purpose }}
+                    @endforeach
+                </div>
+                @endforeach
                 <div class="row">
                     <div class="column">
-                      <h2>2x2 Picture</h2>
+                    <div class="container-sm" style="border: 1px solid black; padding: 60px; margin: 5px;"> </div>
                       <p>2x2 Picture</p>
                     </div>
                     <div class="column">
-                      <h2>Thumbmark</h2>
+                        <div class="container-sm" style="border: 1px solid black; padding: 60px; margin: 5px;"></div>
                       <p>Right Thumbmark</p>
                     </div>
                     <div class="column">
-                      <h2>Signature</h2>
+                    <div class="container-sm" style="border-bottom: 1px solid black; padding: 60px; margin: 5px;" ></div>
                       <p>Signature</p>
                     </div>
                   </div><br><br>

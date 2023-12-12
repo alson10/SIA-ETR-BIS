@@ -200,7 +200,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="file" class="form-label">Profile Picture:</label>
+                                    <label for="file" class="form-label">2x2 Picture:</label>
                                     <input required type="file" value="{{ old('file') }}" name="file"
                                         class="form-control" id="file">
                                     @error('file')
@@ -208,7 +208,28 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div>
+                            {{-- <label for=""><i>Valid ID</i></label>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="file" class="form-label">Front :</label>
+                                    <input required type="file" value="{{ old('front_id') }}" name="front_id"
+                                        class="form-control" id="file">
+                                    @error('front_id')
+                                        <div class="form-text">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="file" class="form-label">Back:</label>
+                                    <input required type="file" value="{{ old('back_id') }}" name="back_id"
+                                        class="form-control" id="file">
+                                    @error('back_id')
+                                        <div class="form-text">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div> --}}
                                 <div class="col-12" style="margin-bottom:10px">
                                     <div class="form-check">
                                         <input class="form-check-input" required type="checkbox" value="check"

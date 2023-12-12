@@ -93,9 +93,38 @@
                     </a>
 
                     @if (Auth::user()->type != 1)
-                        <button class="btn btn-sm btn-outline-secondary make-request-btn" type="button"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal">Make Request</button>
+                        @if (Auth::user()->id_status == 0)
+                            <button class="btn btn-sm btn-outline-secondary make-request-btn" type="button" onclick="showSweetAlert()">Make Request</button>
+                        
+                            <script>
+                                function showSweetAlert() {
+                                    Swal.fire({
+                                        title: 'ID Processing',
+                                        text: 'ID need to be validated to make a request.',
+                                        icon: 'info',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                            </script>
+                        @elseif (Auth::user()->id_status == 1)
+                            <button class="btn btn-sm btn-outline-secondary make-request-btn" type="button"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">Make Request</button>
+                        @elseif (Auth::user()->id_status == 2)
+                            <button class="btn btn-sm btn-outline-secondary make-request-btn" type="button" onclick="showSweetAlert()">Make Request</button>
+                        
+                            <script>
+                                function showSweetAlert() {
+                                    Swal.fire({
+                                        title: 'Invalid ID',
+                                        text: 'The ID is not valid. Please submit another ID.',
+                                        icon: 'info',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                            </script>
+                        @endif
                     @endif
+                
 
                     <a style="height: 30px;margin-right:15px" id="logout" role="button"
                         class="position-relative btn btn-sm btn-outline-secondary">

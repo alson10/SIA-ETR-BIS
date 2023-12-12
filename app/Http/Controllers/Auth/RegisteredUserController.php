@@ -38,7 +38,16 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        $path = substr($request->file('file')->storePublicly('public/users-avatar'), 20);
+
+        
+        // $user_image = '';
+
+        // if ($request->hasFile('avatar')) {
+        //     $user_image = $request->getSchemeAndHttpHost() . '/storage/user_image/' . time() . '.' . $request->avatar->extension();
+        //     $request->avatar->move(public_path('storage/user_image/'), $user_image);
+        // }
+
+        $path = substr($request->file('file')->storePublicly('public/users_avatar'), 20);
         $user = User::create([
             'name' => $request->firstname . " " . $request->lastname,
             'firstname' => $request->firstname,
