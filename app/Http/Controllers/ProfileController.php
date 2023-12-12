@@ -20,10 +20,12 @@ class ProfileController extends Controller
     {
         return view('users.profile');
     }
-    public function show()
+    public function show($id)
     {  
-        // $users = User::where('id', $id)->get();
-        return view('users.update');
+        $users = User::where('id', $id)->get();
+        return view('users.update',[
+            'users' => $users,
+        ]);
     }
     public function edit(Request $request): View
     {
@@ -53,6 +55,37 @@ class ProfileController extends Controller
             ],
         ]);
 
+        $user_image = '';
+
+        if ($request->hasFile('avatar')) {
+            $user_image = $request->getSchemeAndHttpHost() . '/storage/user_image/' . time() . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('storage/user_image/'), $user_image);
+        }
+        $front = '';
+
+        if ($request->hasFile('front_id')) {
+            $front = $request->getSchemeAndHttpHost() . '/storage/valid_id/' . time() . '.' . $request->front_id->extension();
+            $request->front_id->move(public_path('storage/valid_id/'), $front);
+        }
+
+        $back = '';
+
+        if ($request->hasFile('back_id')) {
+            $back = $request->getSchemeAndHttpHost() . '/storage/valid_id/' . time() . '.' . $request->back_id->extension();
+            $request->back_id->move(public_path('storage/valid_id/'), $back);
+        }
+
+        $user->update([
+            'firstname' => $request->firstname,
+            'middlename' => $request->middlename,
+            'lastname' => $request->lastname,
+            'birthdate' => $request->birthdate,
+            'gender' => $request->gender,
+            'email' => $request->email,
+            'avatar' => $user_image,
+            'front_id' => $front,
+            'back_id' => $back,
+        ]);
         // Update the user's personal information
         $user->update($validatedData);
 

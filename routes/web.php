@@ -103,7 +103,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(ProfileController::class, 'index')->group(
         function () {
             Route::get('/profile', 'index')->name('profile');
-            Route::get('/profile/update', 'show')->name('profile.show');
+            Route::get('/profile/update/{id}', 'show')->name('profile.show');
             Route::POST('/profile/update/save', 'update')->name('profile.update');
         }
     );
