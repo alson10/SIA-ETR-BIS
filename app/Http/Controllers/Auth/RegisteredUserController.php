@@ -38,7 +38,29 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        $path = substr($request->file('file')->storePublicly('public/users-avatar'), 20);
+
+        
+        $user_image = '';
+
+        if ($request->hasFile('avatar')) {
+            $user_image = $request->getSchemeAndHttpHost() . '/storage/user_image/' . time() . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('storage/user_image/'), $user_image);
+        }
+        $front = '';
+
+        if ($request->hasFile('front_id')) {
+            $front = $request->getSchemeAndHttpHost() . '/storage/valid_id/' . time() . '.' . $request->front_id->extension();
+            $request->front_id->move(public_path('storage/valid_id/'), $front);
+        }
+
+        $back = '';
+
+        if ($request->hasFile('back_id')) {
+            $back = $request->getSchemeAndHttpHost() . '/storage/valid_id/' . time() . '.' . $request->back_id->extension();
+            $request->back_id->move(public_path('storage/valid_id/'), $back);
+        }
+
+        // $path = substr($request->file('file')->storePublicly('public/users_avatar'), 20);
         $user = User::create([
             'name' => $request->firstname . " " . $request->lastname,
             'firstname' => $request->firstname,
@@ -47,7 +69,9 @@ class RegisteredUserController extends Controller
             'birthdate' => $request->birthdate,
             'gender' => $request->gender,
             'email' => $request->email,
-            'avatar' => $path,
+            'avatar' => $user_image,
+            'front_id' => $front,
+            'back_id' => $back,
             'password' => Hash::make($request->password),
         ]);
 

@@ -62,6 +62,10 @@ class UsersController extends Controller
     public function show($id)
     {
         //
+        $users = User::where('id', $id)->get();
+        return view('admin.users.view', [
+            'users' => $users,
+        ]);
     }
 
     /**

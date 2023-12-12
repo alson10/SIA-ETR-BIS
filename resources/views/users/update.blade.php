@@ -70,7 +70,32 @@
                         @enderror
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-4">
+                        <h5 style="margin: 20px 0 20px 0">2x2 Picture: </h5> 
+                            <div class="col-lg-12" style="margin-bottom: 10px">
+                                <img id="{{ Auth::user()->id }}" style="border-radius: 10px; width: 300px;" 
+                                    src="{{ Auth::user()->avatar }}"
+                                    data-mdb-img="{{ Auth::user()->avatar }}";  srcset="">
+                            </div>
+                    </div>
+                    <div class="col-4">
+                        <h5 style="margin: 20px 0 20px 0">Front ID: </h5> 
+                            <div class="col-lg-12" style="margin-bottom: 10px">
+                                <img id="{{ Auth::user()->id }}" style="border-radius: 10px; width: 300px;" 
+                                    src="{{ Auth::user()->front_id }}"
+                                    data-mdb-img="{{ Auth::user()->front_id }}";  srcset="">
+                            </div>
+                    </div>
+                    <div class="col-4">
+                        <h5 style="margin: 20px 0 20px 0">Back ID: </h5> 
+                            <div class="col-lg-12" style="margin-bottom: 10px">
+                                <img id="{{ Auth::user()->id }}" style="border-radius: 10px; width: 300px;" 
+                                    src="{{ Auth::user()->back_id }}"
+                                    data-mdb-img="{{ Auth::user()->back_id }}";  srcset="">
+                            </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-3">
                         <button class="btn btn-success" style="">Save information</button>
