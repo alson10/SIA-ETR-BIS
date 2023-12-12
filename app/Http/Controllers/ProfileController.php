@@ -21,7 +21,8 @@ class ProfileController extends Controller
         return view('users.profile');
     }
     public function show()
-    {
+    {  
+        // $users = User::where('id', $id)->get();
         return view('users.update');
     }
     public function edit(Request $request): View

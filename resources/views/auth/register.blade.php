@@ -201,19 +201,19 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="file" class="form-label">2x2 Picture:</label>
-                                    <input required type="file" value="{{ old('file') }}" name="file"
-                                        class="form-control" id="file">
-                                    @error('file')
+                                    <input required type="file" value="{{ old('avatar') }}" name="avatar"
+                                        class="form-control" id="avatar">
+                                    @error('avatar')
                                         <div class="form-text">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
-                            {{-- <label for=""><i>Valid ID</i></label>
+                            <label for=""><i>Valid ID</i></label>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="file" class="form-label">Front :</label>
+                                    <label for="file" class="form-label">Front ID :</label>
                                     <input required type="file" value="{{ old('front_id') }}" name="front_id"
-                                        class="form-control" id="file">
+                                        class="form-control" id="front_id">
                                     @error('front_id')
                                         <div class="form-text">{{ $message }}</div>
                                     @enderror
@@ -221,15 +221,15 @@
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="file" class="form-label">Back:</label>
+                                    <label for="file" class="form-label">Back ID:</label>
                                     <input required type="file" value="{{ old('back_id') }}" name="back_id"
-                                        class="form-control" id="file">
+                                        class="form-control" id="back_id">
                                     @error('back_id')
                                         <div class="form-text">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
-                            <div> --}}
+                            <div>
                                 <div class="col-12" style="margin-bottom:10px">
                                     <div class="form-check">
                                         <input class="form-check-input" required type="checkbox" value="check"

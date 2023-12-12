@@ -43,9 +43,7 @@
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
                                         class="fa-solid fa-gear"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item"
-                                            href="">View</a>
-                                    </li>
+                                    <li><a class="dropdown-item" href="{{route('users.show',['id' => $user->id])}}">View</a></li>
                                     <li><a class="dropdown-item" href="{{route('users.toggle',['id' => $user->id, 'id_status' => 1])}}">Accept ID</a></li>
                                     <li><a class="dropdown-item" href="{{route('users.toggle',['id' => $user->id, 'id_status' => 2])}}">Decline ID</a></li>
                                 </ul>

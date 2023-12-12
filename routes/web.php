@@ -209,6 +209,7 @@ Route::middleware('auth')->group(function () {
         Route::controller(UsersController::class)->group(function () {
             Route::get('/admin/users/', 'index')->name('users.index');
             Route::get('/admin/users/{id}/{id_status}/toggle', 'toggle')->name('users.toggle');
+            Route::get('/admin/users/{id}/', 'show')->name('users.show');
         });
 
         Route::controller(RequestController::class)->group(function () {
