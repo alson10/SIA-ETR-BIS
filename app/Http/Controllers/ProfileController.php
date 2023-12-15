@@ -37,9 +37,9 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(Request $request): RedirectResponse
+    public function update(Request $request, User $user): RedirectResponse
     {
-        $user = $request->user(); // Get the authenticated user
+        //$user = $request->user();  Get the authenticated user
 
         // Validate the input data
         $validatedData = $request->validate([
@@ -86,8 +86,9 @@ class ProfileController extends Controller
             'front_id' => $front,
             'back_id' => $back,
         ]);
-        // Update the user's personal information
-        $user->update($validatedData);
+        
+        $user->save();
+        
 
         return redirect()->route('profile');
     }
