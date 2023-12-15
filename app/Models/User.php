@@ -21,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'user_code',
         'firstname',
         'middlename',
         'lastname',
@@ -56,7 +57,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Newscomment::class);
     }
-    
+
     public function newsfeedComments()
     {
         return $this->hasMany(Newsfeedscomment::class);

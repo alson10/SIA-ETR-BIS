@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -39,19 +40,21 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+
     }
-    public function toggle($id, $id_status){
+    public function toggle($id, $id_status)
+    {
         $user = User::findOrFail($id);
         $msg = "";
-        if($user && $id_status == 1){
+        if ($user && $id_status == 1) {
             $user->id_status = 1;
             $msg = 'ID has been verified';
-        }else if($user && $id_status == 2){
+        } else if ($user && $id_status == 2) {
             $user->id_status = 2;
             $msg = 'ID is not verified';
         }
         $user->save();
-        return redirect()->back()->with('message',$msg);
+        return redirect()->back()->with('message', $msg);
     }
     /**
      * Display the specified resource.
