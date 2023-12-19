@@ -201,7 +201,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="file" class="form-label">2x2 Picture:</label>
-                                    <input required type="file" value="{{ old('avatar') }}" name="avatar"
+                                    <input required type="file" value="{{ old('avatar') }}" name="avatar" accept="image/*"
                                         class="form-control" id="avatar">
                                     @error('avatar')
                                         <div class="form-text">{{ $message }}</div>
@@ -212,7 +212,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="file" class="form-label">Front ID :</label>
-                                    <input required type="file" value="{{ old('front_id') }}" name="front_id"
+                                    <input required type="file" value="{{ old('front_id') }}" name="front_id" accept="image/*"
                                         class="form-control" id="front_id">
                                     @error('front_id')
                                         <div class="form-text">{{ $message }}</div>
@@ -222,7 +222,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="file" class="form-label">Back ID:</label>
-                                    <input required type="file" value="{{ old('back_id') }}" name="back_id"
+                                    <input required type="file" value="{{ old('back_id') }}" name="back_id" accept="image/*"
                                         class="form-control" id="back_id">
                                     @error('back_id')
                                         <div class="form-text">{{ $message }}</div>

@@ -79,7 +79,8 @@
                                     src="{{ $user->avatar }}"
                                     data-mdb-img="{{ $user->avatar }}";  srcset="">
                             </div>
-                            <input  type="file" value="{{ old('avatar') }}" name="avatar" class="form-control" id="avatar">
+                           
+                            <input type="file" name="avatar"  accept="image/*" class="form-control" id="avatar">
                             @error('avatar')
                                 <div class="form-text">{{ $message }}</div>
                             @enderror
@@ -91,7 +92,8 @@
                                     src="{{ $user->front_id }}"
                                     data-mdb-img="{{ $user->front_id }}";  srcset="">
                             </div>
-                            <input  type="file" value="{{ old('front_id') }}" name="front_id" class="form-control" id="front_id">
+                            <input type="file" name="front_id"  accept="image/*" class="form-control" id="front_id">
+
                             @error('front_id')
                                 <div class="form-text">{{ $message }}</div>
                             @enderror
@@ -103,7 +105,7 @@
                                     src="{{ $user->back_id }}"
                                     data-mdb-img="{{ $user->back_id }}";  srcset="">
                             </div>
-                            <input  type="file" value="{{ old('back_id') }}" name="back_id" class="form-control" id="back_id">
+                            <input  type="file" name="back_id" accept="image/*" class="form-control" id="back_id">
                             @error('back_id')
                                 <div class="form-text">{{ $message }}</div>
                             @enderror
