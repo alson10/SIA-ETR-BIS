@@ -3,7 +3,7 @@
     @foreach ($users as $user)
     <div class="row">
         <h5 style="margin:50px 0 50px 0">Update Information</h5>
-        <form action="{{ route('profile.update') }}" method="post">
+        <form action="{{ route('profile.update', ['id' => $user->id]) }}" method="post">
             @csrf
             <div class="row">
                 <div class="col-6">
@@ -80,7 +80,7 @@
                                     data-mdb-img="{{ $user->avatar }}";  srcset="">
                             </div>
                            
-                            <input type="file" name="avatar"  accept="image/*" class="form-control" id="avatar">
+                            <input type="file" name="avatar"  accept="image/*" alt ="{{ $user->avatar }}" class="form-control" id="avatar">
                             @error('avatar')
                                 <div class="form-text">{{ $message }}</div>
                             @enderror
@@ -111,6 +111,7 @@
                             @enderror
                     </div>
                 </div> 
+               
                 @endforeach
                 <div class="row mt-3">
                     <div class="col-md-3">

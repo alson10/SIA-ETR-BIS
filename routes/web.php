@@ -104,7 +104,7 @@ Route::middleware('auth')->group(function () {
         function () {
             Route::get('/profile', 'index')->name('profile');
             Route::get('/profile/update/{id}', 'show')->name('profile.show');
-            Route::POST('/profile/update/save', 'update')->name('profile.update');
+            Route::POST('/profile/update/{id}', 'update')->name('profile.update');
         }
     );
 
