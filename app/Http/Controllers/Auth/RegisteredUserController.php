@@ -99,7 +99,7 @@ class RegisteredUserController extends Controller
     public function generateUniqueUserCode(): int
     {
         do {
-            $number = mt_rand(1000000000, 999999999);
+            $number = mt_rand(100000000, 999999999);
         } while ($this->userCodeExists($number));
 
         return $number;
