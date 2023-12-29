@@ -154,7 +154,8 @@
                 <div class="form-container">
                     <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h4 style="margin-bottom: 20px;text-align:center">Alitaya System's</h4>
+                        <h4 style="margin-bottom: 20px;text-align:center">Sta. Maria Barangay Information System
+                        </h4>
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">

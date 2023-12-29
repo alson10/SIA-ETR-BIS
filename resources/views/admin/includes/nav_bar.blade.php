@@ -117,7 +117,7 @@
                     <div class="bottom-curve"></div>
                 </div>
             </li>
-            <li>
+            {{-- <li>
                 <div class="{{ $active == 'certificate' ? 'active' : '' }}">
                     <div class="top-curve"></div>
                     <div class="item">
@@ -127,7 +127,7 @@
                     </div>
                     <div class="bottom-curve"></div>
                 </div>
-            </li>
+            </li> --}}
             <li>
                 <div class="{{ $active == 'services' ? 'active' : '' }}">
                     <div class="top-curve"></div>

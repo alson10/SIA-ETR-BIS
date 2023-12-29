@@ -37,7 +37,7 @@
     <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <h5>Alitaya System's</h5>
+                <h5>Sta. Maria Barangay Information System</h5>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
