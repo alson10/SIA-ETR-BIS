@@ -4,7 +4,9 @@
   } */
 :root {
     --mainBG: #0E0E23;
+    /* --mainBG: #420516; */
     --txtColor: #fff;
+    /* --btnBg: #C07F00; */
     --btnBg: #6259CA;
 }
 
