@@ -71,7 +71,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            background-color: #0E0E23;
+            background-color: #08615d;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -90,7 +90,7 @@
         }
 
         button {
-            background-color: #6259CA !important;
+            background-color: #0E0E23 !important;
             outline: none;
             border: none;
         }
