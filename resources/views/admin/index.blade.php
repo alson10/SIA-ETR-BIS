@@ -32,57 +32,68 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <div class="d-card">
-                <h6>Users:</h6>
-                <h1>{{ $users }}</h1>
-            </div>
+            <a href="{{ route('users.index')}}">
+                <div class="d-card">
+                    <h6>Users:</h6>
+                    <h1>{{ $users }}</h1>
+                </div>
+            </a>
         </div>
         <div class="col-md-3">
-            <div class="d-card">
-                <h6>Pending Request:</h6>
-                <h1>{{ $pendingRequests }}</h1>
-            </div>
+            <a href="{{ route('request') }}">
+                <div class="d-card">
+                    <h6>Pending Request:</h6>
+                    <h1>{{ $pendingRequests }}</h1>
+                </div>
+            </a>
         </div>
         <div class="col-md-3">
-
-            <div class="d-card">
-                <h6>Completed Requests:</h6>
-                <h1>{{ $completedRequests }}</h1>
-            </div>
+            <a href="{{ route('request') }}">
+                <div class="d-card">
+                    <h6>Completed Requests:</h6>
+                    <h1>{{ $completedRequests }}</h1>
+                </div>
+            </a>
         </div>
         <div class="col-md-3">
-
-            <div class="d-card">
-                <h6>Officials:</h6>
-                <h1>{{ $officials }}</h1>
-            </div>
+            <a href="{{ route('officials.index')}}">
+                <div class="d-card">
+                    <h6>Officials:</h6>
+                    <h1>{{ $officials }}</h1>
+                </div>
+            </a>
         </div>
         <div class="col-md-3">
-
-            <div class="d-card">
-                <h6>News:</h6>
-                <h1>{{ $news }}</h1>
-            </div>
-        </div>
-
-
-        <div class="col-md-3">
-            <div class="d-card">
-                <h6>Post:</h6>
-                <h1>{{ $feeds }}</h1>
-            </div>
+            <a href="{{ route('newsfeed') }}">
+                <div class="d-card">
+                    <h6>News:</h6>
+                    <h1>{{ $news }}</h1>
+                </div>
+            </a>
         </div>
         <div class="col-md-3">
-            <div class="d-card">
-                <h6>Active blotters:</h6>
-                <h1>{{ $activeBlotters }}</h1>
-            </div>
+            <a href="{{ route('post')}}">
+                <div class="d-card">
+                    <h6>Post:</h6>
+                    <h1>{{ $feeds }}</h1>
+                </div>
+            </a>
         </div>
         <div class="col-md-3">
-            <div class="d-card">
-                <h6>Settled blotters:</h6>
-                <h1>{{ $settledBlotters }}</h1>
-            </div>
+            <a href="{{ route('blotter.index') }}">
+                <div class="d-card">
+                    <h6>Active blotters:</h6>
+                    <h1>{{ $activeBlotters }}</h1>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{{ route('blotter.index') }}">
+                <div class="d-card">
+                    <h6>Settled blotters:</h6>
+                    <h1>{{ $settledBlotters }}</h1>
+                </div>
+            </a>
         </div>
     </div>
 </div>
