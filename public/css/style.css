@@ -3,11 +3,11 @@
     --txtColor: #fff;
   } */
 :root {
-    --mainBG: #08615d;
+    --mainBG: #266411;
     /* --mainBG: #420516; */
     --txtColor: #fff;
     /* --btnBg: #C07F00; */
-    --btnBg: #6259CA;
+    --btnBg: #ffcd18;
 }
 
 body,
@@ -57,7 +57,7 @@ html * {
 }
 
 .side-nav-bar ul li .active a div {
-    background-color: #6259CA;
+    background-color: #ffcd18;
 }
 
 .side-nav-bar ul li a div {

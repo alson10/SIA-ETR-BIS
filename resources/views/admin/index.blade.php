@@ -3,16 +3,18 @@
     .d-card {
         padding: 20px;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        color: black; /* Add this line to set text color to black */
     }
 
     .d-card h6 {
         font-weight: 600;
         margin-bottom: 10px;
+        color: black; /* Add this line to set text color to black */
     }
 
     .d-card h1 {
         font-weight: 600;
-
+        color: black; /* Add this line to set text color to black */
     }
 
     .col-md-3 {
@@ -34,7 +36,7 @@
         <div class="col-md-3">
             <a href="{{ route('users.index')}}">
                 <div class="d-card">
-                    <h6>Users:</h6>
+                    <h6>Residents:</h6>
                     <h1>{{ $users }}</h1>
                 </div>
             </a>

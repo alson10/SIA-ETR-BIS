@@ -39,7 +39,7 @@
                 <div class="{{ $active == 'dashboard' ? 'active' : '' }}">
                     <div class="top-curve"></div>
                     <div class="item"
-                        style="{{ $active == 'dashboard' ? '' : 'margin:20px 0;background-color: #6259CA;border-radius:10px;margin-right:20px' }}">
+                        style="{{ $active == 'dashboard' ? '' : 'margin:20px 0;background-color: #ffcd18;border-radius:10px;margin-right:20px' }}">
                         <a href="{{ route('dashboard') }}">
                             <div><i class="fa-solid fa-chart-pie"></i></div> Dashboard
                         </a>
@@ -161,42 +161,20 @@
                 </div>
             </li>
         </ul>
-        {{-- <p>Others</p>
+        <p>Others</p>
         <ul>
             <li>
                 <div class="">
                     <div class="top-curve"></div>
                     <div class="item">
-                        <a href="">
-                            <div><i class="fa-solid fa-message"></i></div>Messages
+                        <a href="{{ route('backup.run') }}">
+                            <div><i class="fa-solid fa-hammer"></i></div>Backup
                         </a>
                     </div>
                     <div class="bottom-curve"></div>
                 </div>
             </li>
-            <li>
-                <div class="">
-                    <div class="top-curve"></div>
-                    <div class="item">
-                        <a href="">
-                            <div><i class="fa-solid fa-gear"></i></div>Settings
-                        </a>
-                    </div>
-                    <div class="bottom-curve"></div>
-                </div>
-            </li>
-            <li>
-                <div class="{{ $active == 'assets' ? 'active' : '' }}">
-                    <div class="top-curve"></div>
-                    <div class="item">
-                        <a href="{{ route('assets') }}">
-                            <div><i class="fa-solid fa-image"></i></div>Assets
-                        </a>
-                    </div>
-                    <div class="bottom-curve"></div>
-                </div>
-            </li>
-        </ul> --}}
+        </ul>
     </div>
     <div class="right-content">
         <div style="">

@@ -71,7 +71,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            background-color: #08615d;
+            background-color: #266411;
             height: 100vh;
             display: flex;
             justify-content: center;

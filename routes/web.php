@@ -17,6 +17,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\Users\MyRequestController;
 use App\Http\Controllers\GenerateCertificateController;
+use App\Http\Controllers\BackupController;
 use App\Models\Blotter;
 use App\Models\Newscomment;
 use App\Models\Newsfeedscomment;
@@ -29,6 +30,8 @@ use App\Models\Services;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Spatie\Backup\Commands\BackupCommand;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -248,6 +251,19 @@ Route::middleware('auth')->group(function () {
         Route::post('/getnotifications', 'getUserNotifations')->name('get.notifications');
         Route::get('/admin/notifaction/{user_id}/{request_id}/{status}', 'createNotification')->name('admin.createNotifaction');
     });
+
+    // Route::get('/backup', [BackupController::class, 'backup'])->name('backup');
+    Route::get('/backup', function () {
+        // Run the backup command
+        $exitCode = Artisan::call(BackupCommand::class);
+
+        // Check if the backup was successful
+        if ($exitCode === 0) {
+            return 'Backup completed successfully!';
+        } else {
+            return 'Backup failed!';
+        }
+    })->name('backup.run');
 });
 
 require __DIR__ . '/auth.php';
