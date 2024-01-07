@@ -125,12 +125,11 @@
                         @endif
                     @endif
                 
-
-                    <a style="height: 30px;margin-right:15px" id="logout" role="button"
-                        class="position-relative btn btn-sm btn-outline-secondary">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-
-                    </a>
+                    {{-- <p>{{Auth::user()->firstname.' '. Auth::user()->lastname}}</p> --}}
+                        <a style="height: 30px; margin-right:5px" id="logout" role="button"
+                            class="position-relative btn btn-sm btn-outline-secondary">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
                 @else
                     <a href="/login"><button class="btn btn-sm btn-outline-secondary" type="button">Login</button></a>
                     <a href="/register"><button class="btn btn-sm btn-outline-secondary"

@@ -9,7 +9,7 @@
         text-align: center;
     }
     .container{
-        margin-top: 100px;
+        margin-top: 10px;
     }
     .service{
         text-transform: uppercase;
@@ -45,24 +45,33 @@
 @foreach ($services as $service)
     @if ($service->service_name == 'Certificate of Indigency')
     <div class="container">
-        <img src="{{ asset('qrcodes/') }}" alt="QR Code">
+       
+     
         {{-- <a href="{{ asset('pdf/') }}" target="_blank">Download PDF</a> --}}
         {{-- <img src="{{ asset('assets/qrcode.png') }}" alt="QR Code" id="qrcode"> --}}
         <div class="row">
             <form action="{{route('certificate.indigency')}}" method="post">
                 @csrf
-                <div class="text-center">
-                    Republic of the Philippines <br>
-                    Province of Pangasinan <br>
-                    Municipality of Santa Maria <br>
-                    <b>Barangay San Mariano </b><br><br>
-                
-
-                    <h3 class="text-center"> OFFICE OF THE BARANGAY COUNCIL </h3><br>
-                    @foreach ($services as $service)
-                        <h2 class="service">{{ $service->service_name }}</h2><br>
-                    @endforeach
-                </div><br><br>
+                <div class="row">
+                    <div class="col">
+                        <center><img src="{{ asset('assets/stamaria.png') }}" style="width:150px;"> </center><br>
+                    </div>
+                    <div class="col">
+                        <div class="text-center">
+                            Republic of the Philippines <br>
+                            Province of Pangasinan <br>
+                            Municipality of Santa Maria <br>
+                            <b>Barangay San Mariano </b><br><br>
+                        
+        
+                            <h3 class="text-center"> OFFICE OF THE BARANGAY COUNCIL </h3><br>
+                            @foreach ($services as $service)
+                                <h2 class="service">{{ $service->service_name }}</h2><br>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <br><br>
                 <b>TO WHOM IT MAY CONCERN:</b>
                 @foreach ($users as $user)
                     @foreach ($requests as $request)
@@ -78,6 +87,7 @@
                             Given this {{ $currentDate->format('jS') }} day of {{ $currentDate->format('F Y') }} at Barangay San Mariano, Santa Maria, Pangasinan.
                         </p> <br><br>
                     </div>
+                    
                     @endforeach
                 @endforeach
                 @foreach ($officials as $official)
@@ -88,14 +98,15 @@
                 @endforeach
             </form>
         </div>
+        {!! DNS2D::getBarcodeHTML($user->user_code, 'QRCODE') !!}
     </div>
     @endif
     @if ($service->service_name == 'Barangay Clearance')
     <div class="container">
-        <img src="{{ asset('qrcodes/') }}" alt="QR Code">
         <div class="row">
             <form action="{{route('certificate.indigency')}}" method="post">
                 @csrf
+                <center><img src="{{ asset('assets/stamaria.png') }}" style="width:100px;"> </center><br>
                 <div class="text-center">
                     Republic of the Philippines <br>
                     Province of Pangasinan <br>
@@ -156,13 +167,12 @@
                 @endforeach
 
                 <p> <i>Not Valid Without <br> Barangay Official Seal </i></p>
-            </form>
+            </form>{!! DNS2D::getBarcodeHTML($user->user_code, 'QRCODE') !!}
         </div>
     </div>
     @endif
     @endforeach
 <script>
-    window.print();
-    
+    window.print(); 
 </script>
 

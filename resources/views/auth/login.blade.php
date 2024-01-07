@@ -148,10 +148,12 @@
     </style>
 </head>
 <body>
+    
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="form-container">
+                    <center><img src="{{ asset('assets/stamaria.png') }}" style="width:200px;"> </center><br>
                     <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <h4 style="margin-bottom: 20px;text-align:center">Sta. Maria Barangay Information System

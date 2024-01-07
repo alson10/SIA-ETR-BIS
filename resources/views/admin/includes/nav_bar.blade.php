@@ -33,8 +33,7 @@
     <div id="loader">
         <img src="/assets/load.gif" alt="" srcset="">
     </div>
-    <div class="side-nav-bar">
-        <h3><i class="fa-solid fa-city"></i>BIS</h3>
+    <div class="side-nav-bar"><h3><p style="font-size: 22px; color:white">Barangay Management System</p></h3>
         <ul>
             <li>
                 <div class="{{ $active == 'dashboard' ? 'active' : '' }}">

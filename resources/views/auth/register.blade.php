@@ -144,7 +144,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="gender" class="form-label">Gender</label>
+                                    <label for="gender" class="form-label">Sex</label>
                                     <select required class="form-select" name="gender"
                                         aria-label="Default select example">
                                         <option value="">Select gender</option>
@@ -190,7 +190,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="password_confirmation" class="form-label">Comfirm Password:</label>
+                                    <label for="password_confirmation" class="form-label">Confirm Password:</label>
                                     <input minlength="8" required type="password" name="password_confirmation"
                                         class="form-control" id="password_confirmation">
                                     @error('password_confirmation')
@@ -208,7 +208,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <label for=""><i>Valid ID</i></label>
+                            <label for=""><i>Valid ID (National ID, PhilHealth ID, Voter's ID, Passport ID)</i></label>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="file" class="form-label">Front ID :</label>
