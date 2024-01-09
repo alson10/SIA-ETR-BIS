@@ -69,7 +69,7 @@ class NotificationController extends Controller
             'date' => date_format(date_create($request->created_at), 'D M d, Y - h:i A'),
         ], function ($message) use ($user) {
 
-            $logoPath = public_path('public/assets/stamariaa.png'); // Update the path to your logo file
+            $logoPath = public_path('assets\stamariaa.png'); // Update the path to your logo file
             $message->embed($logoPath, 'logo'); // Embed the logo with a unique identifier
 
             $message->to($user->email);
