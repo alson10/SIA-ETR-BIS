@@ -17,11 +17,10 @@ class NotificationController extends Controller
     public  function generateCertificate($user_id, $request_id, $status)
     {
 
-            $requests = Request_list::all();
-            return view('admin.request.cert_indigency', [
-                'requests' => $requests,
+        $requests = Request_list::all();
+        return view('admin.request.cert_indigency', [
+            'requests' => $requests,
         ]);
-        
     }
     public  function createNotification($user_id, $request_id, $status)
     {
@@ -34,11 +33,11 @@ class NotificationController extends Controller
         if (strval($status) == "1") {
             $data['content'] = "Your request is already processing";
 
-        //     $requests = Request_list::all();
-        //     return view('admin.request.cert_indigency', [
-        //         'requests' => $requests,
-        // ]);
-        
+            //     $requests = Request_list::all();
+            //     return view('admin.request.cert_indigency', [
+            //         'requests' => $requests,
+            // ]);
+
         }
         if (strval($status) == "2") {
             $data['content'] = "Your request is ready to pick up.";
@@ -67,31 +66,37 @@ class NotificationController extends Controller
             'status' => $data['content'],
             'request_name' => $service_name, // Update this line
             'purpose' => $request->purpose,
-            'date' => date_format(date_create($request->created_at),'D M d, Y - h:i A'),
+            'date' => date_format(date_create($request->created_at), 'D M d, Y - h:i A'),
         ], function ($message) use ($user) {
+            $message->from('stamariabis', 'Sta. Maria BIS');
+
+            $logoPath = public_path('public/assets/stamariaa.png'); // Update the path to your logo file
+            $message->embed($logoPath, 'logo'); // Embed the logo with a unique identifier
+
             $message->to($user->email);
             $message->subject('Request Status');
+
+            $message->setBody('<img src="' . $message->embed('public/assets/stamariaa.png') . '" alt="Logo">');
         });
-       
+
         return redirect()->route('request');
     }
     public function getUserNotifations(Request $request)
     {
         //unseen
-        if(intval($request->input('type')) == 0){
+        if (intval($request->input('type')) == 0) {
             return json_encode(Notification::where('to_id', '=', Auth::user()->id)
-            ->where('seen','=','0')
-            ->get());
+                ->where('seen', '=', '0')
+                ->get());
         }
         // all
         return json_encode(Notification::where('to_id', '=', Auth::user()->id)
-        ->orderBy('created_at','desc')
-        ->get());
+            ->orderBy('created_at', 'desc')
+            ->get());
     }
     public function timeForHumans(Request $request)
     {
         $result = Carbon::parse($request->input('date'))->diffForHumans();
         return $result;
     }
-
 }

@@ -15,12 +15,11 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $users = User::latest('created_at')->paginate(10);;
+        $users = User::latest('created_at', 'desc')->paginate(10);
 
         return view('admin.users.index', [
             'users' => $users,
         ]);
-        
     }
 
     /**
@@ -67,7 +66,8 @@ class UsersController extends Controller
     public function show($id)
     {
         //
-        $users = User::where('id', $id)->get();
+        $users = User::where('id', $id)
+            ->get();
         return view('admin.users.view', [
             'users' => $users,
         ]);
