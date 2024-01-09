@@ -68,12 +68,15 @@ class NotificationController extends Controller
             'purpose' => $request->purpose,
             'date' => date_format(date_create($request->created_at), 'D M d, Y - h:i A'),
         ], function ($message) use ($user) {
+            $message->from('immansegismundo@gmail.com', 'Sta. Maria BIS');
 
             $logoPath = public_path('assets\stamariaa.png'); // Update the path to your logo file
             $message->embed($logoPath, 'logo'); // Embed the logo with a unique identifier
 
             $message->to($user->email);
             $message->subject('Request Status');
+
+            $message->setBody('<img src="' . $message->embed($logoPath) . '" alt="Logo">');
         });
 
         return redirect()->route('request');
