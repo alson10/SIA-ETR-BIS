@@ -76,7 +76,6 @@ class NotificationController extends Controller
             $message->to($user->email);
             $message->subject('Request Status');
 
-            $message->setBody('<img src="' . $message->embed($logoPath) . '" alt="Logo">');
         });
 
         return redirect()->route('request');
