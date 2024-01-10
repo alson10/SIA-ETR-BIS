@@ -165,9 +165,9 @@
                     <p>Punong Barangay</p>
                 </div><br>
                 @endforeach
-
+                {!! DNS2D::getBarcodeHTML($user->user_code, 'QRCODE') !!}
                 <p> <i>Not Valid Without <br> Barangay Official Seal </i></p>
-            </form>{!! DNS2D::getBarcodeHTML($user->user_code, 'QRCODE') !!}
+            </form>
         </div>
     </div>
     @endif
