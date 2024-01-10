@@ -131,8 +131,11 @@
 
     </div>
     <div>
+        <h4>Sex</h4>
         <canvas id="myPieChart" width="400" height="400"></canvas>
-
+    </div>
+    <div>
+        <h4>Ages</h4>
         <canvas id="myChart" width="200" height="50"></canvas>
     </div>
 
@@ -142,18 +145,21 @@
 @include('admin.includes.footer');
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+
+    //REQUESTS
+
     var ctx = document.getElementById('myBarChart').getContext('2d');
 
-    // Define the data
     var data = {
         labels: ["Pending Requests", "Completed Requests"],
         datasets: [{
             label: 'Requests',
             // data: [{{ $pendingRequests }}, {{ $completedRequests }}],
+            // sample data lnag kasi wala data
             data: [{{ 10 }}, {{ 12 }}],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)', // Color for pending requests
-                'rgba(75, 192, 192, 0.2)'  // Color for completed requests
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(75, 192, 192, 0.2)' 
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -163,7 +169,6 @@
         }]
     };
 
-    // Define the options
     var options = {
         scales: {
             y: {
@@ -172,28 +177,27 @@
         }
     };
 
-    // Create the bar chart
     var myBarChart = new Chart(ctx, {
-        type: 'bar', // Change to 'bar' for a bar chart
+        type: 'bar',
         data: data,
         options: options
     });
-</script>
 
-<script>
-    // Get the counts from your server-side variables
-    // var activeBlottersCount = {{ $activeBlotters }};
-    // var settledBlottersCount = {{ $settledBlotters }};
+    //BLOTTERS
 
+    // sample data lnag kasi wala data
     var activeBlottersCount = {{ 12 }};
     var settledBlottersCount = {{ 10 }};
+
+    // var activeBlottersCount = {{ $activeBlotters }};
+    // var settledBlottersCount = {{ $settledBlotters }};
 
     // Calculate percentages
     var totalBlotters = activeBlottersCount + settledBlottersCount;
     var activeBlottersPercentage = (activeBlottersCount / totalBlotters) * 100;
     var settledBlottersPercentage = (settledBlottersCount / totalBlotters) * 100;
 
-    // Set up data for the pie chart
+
     var data = {
         labels: ['Active blotters', 'Settled blotters'],
         datasets: [{
@@ -203,16 +207,17 @@
         }]
     };
 
-    // Get the canvas element
+
     var ctx = document.getElementById('blotterPieChart').getContext('2d');
 
-    // Create the pie chart
+
     var myPieChart = new Chart(ctx, {
         type: 'pie',
         data: data,
     });
-</script>
-<script>
+
+    //GENDER
+
     var maleCount = {{ $male_users }};
     var femaleCount = {{ $female_users }};
   
@@ -231,13 +236,14 @@
       type: 'pie',
       data: data,
     });
-  </script>
-   <script>
+
+    //AGE
+
        var ctx = document.getElementById('myChart').getContext('2d');
        var myChart = new Chart(ctx, {
            type: 'bar',
            data: {
-               labels: ['18 and Under ', '18 to 30', '31 to 50', 'Above 50'],
+               labels: ['17 and Below ', '18 to 30', '31 to 50', 'Above 50'],
                datasets: [{
                    label: 'Count',
                    data: [{{ $countUnder18 }}, {{ $count18to30 }}, {{ $count31to50 }}, {{ $countAbove50 }}],
