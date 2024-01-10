@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Spatie\Backup\Commands\BackupCommand;
 use Illuminate\Support\Facades\Artisan;
-
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -129,12 +129,41 @@ Route::middleware('auth')->group(function () {
             // Prepare the data for the chart
             $labels = $services->pluck('service_name')->toArray();
             $values = $services->pluck('count')->toArray();
+            $users = User::all(); 
+
+            foreach ($users as $user) {
+                $birthdate = $user->birthdate;
+            
+                $age = now()->diffInYears($birthdate);
+           
+                $countUnder18 = 0;
+                $count18to30 = 0;
+                $count31to50 = 0;
+                $countAbove50 = 0;
+                
+                if ($age >= 1 && $age <= 18) {
+                    $countUnder18 = $users->count();
+                } elseif ($age >= 19 && $age <= 30) {
+                    $count18to30 = $users->count();
+                } elseif ($age >= 31 && $age <= 50) {
+                    $count31to50 = $users->count();
+                } else {
+                    $countAbove50 = $users->count();
+                }
+
+            }
             return view(
                 'admin.index',
                 [
                     'labels' => $services->pluck('service_name')->toArray(),
                     '$values' => $services->pluck('count')->toArray(),
                     'users' => User::get()->count() - 1,
+                    'countUnder18' => $countUnder18,
+                    'count18to30' => $count18to30,
+                    'count31to50' => $count31to50,
+                    'countAbove50' => $countAbove50,
+                    'male_users' => User::where('gender', 'male')->count(),
+                    'female_users' => User::where('gender', 'female')->count(),
                     'officials' => Official::get()->count(),
                     'news' => Post::get()->count(),
                     'feeds' => NewsfeedsModel::get()->count(),
