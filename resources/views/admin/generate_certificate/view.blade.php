@@ -143,10 +143,14 @@
                         Purpose: {{ $request->purpose }}
                     @endforeach
                 </div>
-                @endforeach
+              
                 <div class="row">
                     <div class="column">
-                    <div class="container-sm" style="border: 1px solid black; padding: 60px; margin: 5px;"> </div>
+                    <div class="container-sm" style="border: 1px solid black;  margin: 5px;"> 
+                        <img id="{{ $user->id }}" style=" width:120px; height: 120px; object-fit: cover;" 
+                        src="{{ $user->avatar }}"
+                        data-mdb-img="{{ $user->avatar }}";  srcset="">
+                    </div>
                       <p>2x2 Picture</p>
                     </div>
                     <div class="column">
@@ -158,7 +162,7 @@
                       <p>Signature</p>
                     </div>
                   </div><br><br>
-
+                  @endforeach
                 @foreach ($officials as $official)
                 <div class="text-center">
                     <h3>{{ $official->firstname }} {{ $official->middlename }} {{ $official->lastname }}</h3>
